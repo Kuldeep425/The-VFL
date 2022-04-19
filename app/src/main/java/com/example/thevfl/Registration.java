@@ -5,32 +5,37 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.LinearLayout;
 
 import java.util.EventObject;
 
 public class Registration extends AppCompatActivity {
-    public  void displayForm(View v){
-        layout1=findViewById(R.id.buttons);
-        layout1.setVisibility(View.INVISIBLE);
-        layout2=findViewById(R.id.buyerregistrationform);
-        layout3=findViewById(R.id.sellerregistrationform);
+      public void gotoLoginpage(View v){
+             if(v.getId()==R.id.register){
+                layout2.setVisibility(View.INVISIBLE);
+                layout1.setVisibility(View.VISIBLE);
+             }
+             if(v.getId()==R.id.backbtn){
+                layout2.setVisibility(View.VISIBLE);
+                layout1.setVisibility(View.INVISIBLE);
+             }
+      }
 
-//        System.out.println(v.callOnClick());
-        if(v.getId()==R.id.buyerbtn){
-            layout2.setVisibility(View.VISIBLE);
-        }
-        if(v.getId()==R.id.sellerbtn){
-            layout3.setVisibility(View.VISIBLE);
-        }
-    }
+   /*String [] items={"cosmetic","Vegetables","Fertilizers","Fruit","Milk centre","Kirana Store","Bakery","other"};
+    AutoCompleteTextView autoCompleteTextView;
+    ArrayAdapter<String>adapter;
+
+    */
+    LinearLayout layout1,layout2;
 
 
-    LinearLayout layout1,layout2,layout3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-
+        layout1=findViewById(R.id.registrationform);
+        layout2=findViewById(R.id.loginpage);
     }
 }

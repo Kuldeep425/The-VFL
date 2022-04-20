@@ -22,7 +22,14 @@ public class Registration extends AppCompatActivity {
                 layout1.setVisibility(View.INVISIBLE);
              }
       }
-
+      public void  goToMainPage(View v){
+          if(v.getId()==R.id.registerbtn){
+              startActivity(new Intent(Registration.this,Mainpage.class));
+          }
+          if(v.getId()==R.id.logintbn){
+              startActivity(new Intent(Registration.this,Profile.class));
+          }
+      }
    /*String [] items={"cosmetic","Vegetables","Fertilizers","Fruit","Milk centre","Kirana Store","Bakery","other"};
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String>adapter;

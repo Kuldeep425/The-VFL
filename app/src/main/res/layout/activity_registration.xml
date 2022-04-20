@@ -10,7 +10,7 @@
         android:id="@+id/loginpage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+         android:visibility="gone"
         android:layout_centerInParent="true"
         android:orientation="vertical">
 
@@ -58,59 +58,64 @@
         </LinearLayout>
 
     </LinearLayout>
+
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-       android:layout_centerInParent="true"
-        android:visibility="gone"
         android:id="@+id/registrationform"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:orientation="vertical">
 
 
-
         <EditText
+            android:id="@+id/username"
             android:layout_width="180dp"
             android:layout_height="40dp"
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_input"
             android:hint="Name"
-            android:background="@drawable/custom_input"
             android:textAlignment="center" />
 
         <EditText
+            android:id="@+id/phonenumber"
             android:layout_width="180dp"
             android:layout_height="40dp"
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_input"
             android:hint="Phone No."
-            android:background="@drawable/custom_input"
             android:textAlignment="center" />
 
         <EditText
+            android:id="@+id/email_id"
             android:layout_width="180dp"
             android:layout_height="40dp"
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_input"
             android:hint="Email Id"
-            android:background="@drawable/custom_input"
             android:textAlignment="center" />
 
         <EditText
+            android:id="@+id/password"
             android:layout_width="180dp"
             android:layout_height="40dp"
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="15dp"
-            android:hint="Password"
             android:background="@drawable/custom_input"
+            android:hint="Password"
             android:textAlignment="center" />
 
         <EditText
+            android:id="@+id/repassword"
             android:layout_width="180dp"
             android:layout_height="40dp"
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="40dp"
-            android:hint="Retype Password"
             android:background="@drawable/custom_input"
+            android:hint="Retype Password"
             android:textAlignment="center" />
 
         <LinearLayout
@@ -119,22 +124,22 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/registerbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"
-                android:text="Register"
-                android:id="@+id/registerbtn"
-                android:onClick="goToMainPage"
                 android:background="@drawable/gradient_button"
+                android:onClick="goToMainPage"
+                android:text="Register"
                 android:textAllCaps="false" />
 
             <Button
+                android:id="@+id/backbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Back"
-                android:id="@+id/backbtn"
                 android:background="@drawable/gradient_button"
                 android:onClick="gotoLoginpage"
+                android:text="Back"
                 android:textAllCaps="false" />
         </LinearLayout>
 

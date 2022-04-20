@@ -35,6 +35,7 @@ public class Registration extends AppCompatActivity {
                 layout1.setVisibility(View.INVISIBLE);
              }
       }
+<<<<<<< HEAD
       public void  goToMainPage(View v){
           if(v.getId()==R.id.registerbtn){
               if(!password.getText().equals(repassword.getText())){
@@ -53,6 +54,12 @@ public class Registration extends AppCompatActivity {
               startActivity(new Intent(Registration.this,Profile.class));
           }
       }
+=======
+
+   /*String [] items={"cosmetic","Vegetables","Fertilizers","Fruit","Milk centre","Kirana Store","Bakery","other"};
+    AutoCompleteTextView autoCompleteTextView;
+    ArrayAdapter<String>adapter;
+>>>>>>> parent of 781e7ee (working on profile)
 
     private void apiCallForVerification(String name, String email, String password) {
       String url="http://localhost:8000/api/auth/register";

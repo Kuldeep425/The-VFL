@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+<<<<<<< HEAD
     <color name="blackcoffee">#F8A461</color>
     <color name="purpledark">#310D20</color>
     <color name="xiketic">#121420</color>
@@ -15,4 +16,6 @@
     <color name="start">#12c2e9</color>
     <color name="mid">#c471ed</color>
     <color name="bottom">#f64f59</color>
+=======
+>>>>>>> parent of 781e7ee (working on profile)
 </resources>

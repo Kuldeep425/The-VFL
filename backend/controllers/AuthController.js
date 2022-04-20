@@ -122,7 +122,7 @@ const logout = (req, res) => {
 const viewProfile = async (req, res) => {
   const id = req.params.id;
   const user = await User.findById(id);
-  res.json({ ...user });
+  res.json({ ...user._doc });
 };
 
 const updateProfile = (req, res) => {

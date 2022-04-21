@@ -119,4 +119,25 @@ const logout = (req, res) => {
   res.status(200).json({ message: "successfully logged out" });
 };
 
-module.exports = { register, login, logout, confirmEmail };
+const viewProfile = async (req, res) => {
+  const id = req.params.id;
+  const user = await User.findById(id);
+  res.json({ ...user._doc });
+};
+
+const updateProfile = (req, res) => {
+  const id = req.params.id;
+  User.findByIdAndUpdate(id, { ...req.body }, function (e, doc) {
+    if (e) return res.status(404).send("some error occured");
+    res.send("updated successfully");
+  });
+};
+
+module.exports = {
+  register,
+  login,
+  logout,
+  confirmEmail,
+  updateProfile,
+  viewProfile,
+};

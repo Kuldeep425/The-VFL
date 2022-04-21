@@ -17,6 +17,8 @@ const userSchema = new Schema({
     minlength: [6, "password should be atleast 6 characters long"],
   },
   photo: { type: String },
+  cart: Array,
+  myProducts: Array,
 });
 userSchema.pre("save", async function (next) {
   this.password = await bcrypt.hash(this.password, 10);

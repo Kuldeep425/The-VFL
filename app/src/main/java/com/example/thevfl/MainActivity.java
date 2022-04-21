@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
                  // close this activity
                  finish();
              }
-         }, 3000);
+         }, 5000);
      }
      boolean flag=false;
     @Override

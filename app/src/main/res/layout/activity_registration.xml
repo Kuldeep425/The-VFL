@@ -10,10 +10,8 @@
         android:id="@+id/loginpage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
+
          android:visibility="gone"
-=======
->>>>>>> parent of 781e7ee (working on profile)
         android:layout_centerInParent="true"
 
         android:orientation="vertical">
@@ -45,6 +43,7 @@
                 android:id="@+id/logintbn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="goToMainPage"
                 android:layout_marginRight="30dp"
                 android:text="Login"
                 android:textAllCaps="false" />
@@ -129,26 +128,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="30dp"
-<<<<<<< HEAD
-                android:background="@drawable/gradient_button"
+
                 android:onClick="goToMainPage"
                 android:text="Register"
-=======
-                android:text="Register"
-                android:id="@+id/registerbtn"
->>>>>>> parent of 781e7ee (working on profile)
+
+
                 android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/backbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-<<<<<<< HEAD
-                android:background="@drawable/gradient_button"
-=======
-                android:text="Back"
-                android:id="@+id/backbtn"
->>>>>>> parent of 781e7ee (working on profile)
+
+
+
+
                 android:onClick="gotoLoginpage"
                 android:text="Back"
                 android:textAllCaps="false" />

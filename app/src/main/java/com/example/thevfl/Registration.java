@@ -15,7 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 
-import com.android.volley.RequestQueue;
+
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -35,31 +35,29 @@ public class Registration extends AppCompatActivity {
                 layout1.setVisibility(View.INVISIBLE);
              }
       }
-<<<<<<< HEAD
-      public void  goToMainPage(View v){
+     public void  goToMainPage(View v){
           if(v.getId()==R.id.registerbtn){
-              if(!password.getText().equals(repassword.getText())){
+              if((password.getText().toString()==repassword.getText().toString())){
                   Toast.makeText(Registration.this, "Password does not match", Toast.LENGTH_SHORT).show();
               }
               else if(name.getText().length()==0 || phonenumber.getText().length()==0 || email.getText().length()==0 || password.getText().length()==0 || repassword.getText().length()==0){
                   Toast.makeText(Registration.this, "Complete the Details", Toast.LENGTH_SHORT).show();
               }
               else{
-                  apiCallForVerification(name.getText().toString(),email.getText().toString(),password.getText().toString());
-                  startActivity(new Intent(Registration.this,Mainpage.class));
+                //  apiCallForVerification(name.getText().toString(),email.getText().toString(),password.getText().toString());
+                 //startActivity(new Intent(Registration.this,Mainpage.class));
               }
 
           }
           if(v.getId()==R.id.logintbn){
-              startActivity(new Intent(Registration.this,Profile.class));
+             startActivity(new Intent(Registration.this,MyMenu.class));
           }
       }
-=======
+
 
    /*String [] items={"cosmetic","Vegetables","Fertilizers","Fruit","Milk centre","Kirana Store","Bakery","other"};
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String>adapter;
->>>>>>> parent of 781e7ee (working on profile)
 
     private void apiCallForVerification(String name, String email, String password) {
       String url="http://localhost:8000/api/auth/register";

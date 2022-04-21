@@ -39,9 +39,10 @@ const updateProduct = async (req, res) => {
   const sid = req.params.sid,
     pid = req.params.pid;
   const product = await Product.findById(pid);
+  if (!product) return res.status(404).send("some error occured");
   //Check whether the product owner is updating the product
-  if (!product || product._doc.sellerId != sid)
-    return res.status(404).send("some error occured");
+  if (product._doc.sellerId != sid)
+    return res.status(401).send("unauthorized access");
   Product.findByIdAndUpdate(pid, { ...req.body }, function (e, doc) {
     if (e) return res.status(404).send("some error occured");
     res.send("successfully updated");
@@ -50,12 +51,21 @@ const updateProduct = async (req, res) => {
 
 const viewMyProducts = async (req, res) => {
   const sid = req.params.sid;
-  // const Products = await Product.find()
+  const Products = await Product.find({ sellerId: sid });
+  if (!Products) return res.status(404).send("not found");
+  res.json({ ...Products }); //FIXME: check the type of docs..
 };
 
-const productsByCategory = (req, res) => {};
+const productsByCategory = async (req, res) => {
+  const category = req.params.cat;
+  const products = await Product.find({ category: category });
+  if (!products) res.status(404).send("not found");
+  res.json({ ...products });
+};
 
-const productsByTag = (req, res) => {};
+const productsByTag = async (req, res) => {
+  const tag = req.params.tag; //TODO: complete the function for multiple tags
+};
 
 module.exports = {
   addProduct,

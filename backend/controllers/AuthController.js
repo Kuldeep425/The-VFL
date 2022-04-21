@@ -71,7 +71,6 @@ const register = async (req, res) => {
       })
       .catch((err) => console.log(err));
     res.json({
-      status: 201,
       message: "We've just sent an email... verify your account",
     });
   } catch (err) {
@@ -90,9 +89,7 @@ const confirmEmail = (req, res) => {
         console.log(err);
         return res.status(404);
       } else {
-        res
-          .status(200)
-          .send("<h1>Account verified, please log into the app.</h1>");
+        res.send("<h1>Account verified, please log into the app.</h1>");
       }
     }
   );
@@ -116,7 +113,7 @@ const login = async (req, res) => {
 //logout ->
 const logout = (req, res) => {
   //   res.cookie("jwtCookie", "", { maxAge: 1 }); //set cookie age 1ms and already removed the data in sessionStorage from frontend
-  res.status(200).json({ message: "successfully logged out" });
+  res.json({ message: "successfully logged out" });
 };
 
 const viewProfile = async (req, res) => {

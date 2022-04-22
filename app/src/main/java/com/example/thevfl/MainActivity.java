@@ -1,10 +1,10 @@
 package com.example.thevfl;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
      public void playscreen(){
@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
              public void run() {
                  //This method will be executed once the timer is over
                  // Start your app main activity
-                 Intent i = new Intent(MainActivity.this, Registration.class);
+                 Intent i = new Intent(MainActivity.this, TestingAct.class);
                  startActivity(i);
                  // close this activity
                  finish();

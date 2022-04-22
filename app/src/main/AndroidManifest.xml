@@ -8,10 +8,14 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:usesCleartextTraffic="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TheVFL">
+        android:theme="@style/Theme.TheVFL"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Bottomnavigation"
+            android:exported="false"
+            android:label="@string/title_activity_bottomnavigation" />
         <activity
             android:name=".MyMenu"
             android:exported="false"
@@ -22,6 +26,26 @@
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".Category.AddCategoryActivity"
+            android:exported="false"/>
+        <activity android:name=".Category.ListCategoriesActivity"
+            android:exported="false"/>
+        <activity android:name=".Category.UpdateCategoryActivity"
+            android:exported="false"/>
+        <activity android:name=".Home.HomeActivity"
+            android:exported="false"/>
+        <activity android:name=".Product.AddProductActivity"
+            android:exported="false"/>
+        <activity android:name=".Product.ListProductsActivity"
+            android:exported="false"/>
+        <activity android:name=".Product.ProductPurchaseActivity"
+            android:exported="false"/>
+        <activity android:name=".Product.UpdateProductActivity"
+            android:exported="false"/>
+        <activity android:name=".TestingAct"
+            android:exported="false"/>
+
         <activity
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation"

@@ -28,10 +28,15 @@
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/fragment_slideshow.xml" value="0.14868421052631578" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/list_item.xml" value="0.25" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/nav_header_menu.xml" value="0.33" />
+<<<<<<< HEAD
         <entry key="..\:/Users/User/Desktop/Hack36/The-VFL/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/Users/User/Desktop/Hack36/The-VFL/app/src/main/res/layout/activity_registration.xml" value="0.33" />
         <entry key="..\:/Users/User/Desktop/Hack36/The-VFL/app/src/main/res/layout/activity_splash.xml" value="0.18" />
         <entry key="..\:/Users/User/Desktop/Hack36/The-VFL/app/src/main/res/layout/fade_in.xml" value="0.20416666666666666" />
+=======
+        <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/menu/activity_main_drawer.xml" value="0.67" />
+        <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/menu/menu.xml" value="0.33" />
+>>>>>>> c7c50bb9295a9bc2263e79861ec5ea06cd8bc376
       </map>
     </option>
   </component>

@@ -16,5 +16,6 @@
     <color name="start">#12c2e9</color>
     <color name="mid">#c471ed</color>
     <color name="bottom">#f64f59</color>
+    <color name="splash_color">#8F3D37</color>
 
 </resources>

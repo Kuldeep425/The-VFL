@@ -10,10 +10,8 @@
         android:id="@+id/loginpage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-         android:visibility="gone"
         android:layout_centerInParent="true"
-
+        android:visibility="gone"
         android:orientation="vertical">
 
         <EditText
@@ -53,7 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="gotoLoginpage"
-                android:text="Register"
+                android:text="Register..?"
                 android:textAllCaps="false" />
         </LinearLayout>
 
@@ -139,12 +137,8 @@
                 android:id="@+id/backbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
-
-
-
                 android:onClick="gotoLoginpage"
-                android:text="Back"
+                android:text="login..?"
                 android:textAllCaps="false" />
         </LinearLayout>
 

@@ -31,8 +31,8 @@ public class Registration extends AppCompatActivity {
                 layout1.setVisibility(View.VISIBLE);
              }
              if(v.getId()==R.id.backbtn){
-                layout2.setVisibility(View.VISIBLE);
-                layout1.setVisibility(View.INVISIBLE);
+                 layout1.setVisibility(View.INVISIBLE);
+                 layout2.setVisibility(View.VISIBLE);
              }
       }
      public void  goToMainPage(View v){

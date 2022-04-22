@@ -15,6 +15,7 @@ mongoose.connect(MONGO_URI).then(
     console.log(err);
   }
 );
+mongoose.set("useCreateIndex", true);
 
 app.use(express.json());
 app.get("/", (req, res) => res.send("server is up and running..."));

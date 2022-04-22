@@ -12,10 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TheVFL">
-        <activity android:name=".MyMenu"
+        <activity
+            android:name=".MyMenu"
+            android:exported="false"
             android:label="Profile"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            android:exported="false"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".Registration"
             android:configChanges="keyboardHidden|orientation"

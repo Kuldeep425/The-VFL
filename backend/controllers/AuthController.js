@@ -1,4 +1,5 @@
 const User = require("../models/UserModel");
+const Token = require("../models/confirmationModel");
 const { google } = require("googleapis");
 const OAuth2 = google.auth.OAuth2;
 const jwt = require("jsonwebtoken");
@@ -57,6 +58,15 @@ const register = async (req, res) => {
       code += characters[Math.floor(Math.random() * characters.length)];
     }
     const user = await User.create({ ...req.body, confirmationCode: code });
+    if (!user) return res.status(500).send("some erro occured");
+    const tokenwork = await Token.create({
+      user: user._id,
+      confirmationToken: code,
+    });
+
+    if (!tokenwork) console.log("token not created");
+    else console.log("token created");
+
     let emailTransporter = await createTransporter();
     emailTransporter
       .sendMail({
@@ -119,6 +129,7 @@ const logout = (req, res) => {
 const viewProfile = async (req, res) => {
   const id = req.params.id;
   const user = await User.findById(id);
+  if (!user) return res.status(404).send("user not found");
   res.json({ ...user._doc });
 };
 

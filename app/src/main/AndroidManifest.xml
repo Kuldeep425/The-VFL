@@ -27,25 +27,6 @@
             android:exported="false"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Category.AddCategoryActivity"
-            android:exported="false"/>
-        <activity android:name=".Category.ListCategoriesActivity"
-            android:exported="false"/>
-        <activity android:name=".Category.UpdateCategoryActivity"
-            android:exported="false"/>
-        <activity android:name=".Home.HomeActivity"
-            android:exported="false"/>
-        <activity android:name=".Product.AddProductActivity"
-            android:exported="false"/>
-        <activity android:name=".Product.ListProductsActivity"
-            android:exported="false"/>
-        <activity android:name=".Product.ProductPurchaseActivity"
-            android:exported="false"/>
-        <activity android:name=".Product.UpdateProductActivity"
-            android:exported="false"/>
-        <activity android:name=".TestingAct"
-            android:exported="false"/>
-
         <activity
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation"

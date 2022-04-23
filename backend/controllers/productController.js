@@ -4,14 +4,23 @@ const User = require("../models/UserModel");
 const addProduct = async (req, res) => {
   const sid = req.params.sid;
   const seller = await User.findById(sid);
-  if (!seller) return res.status(404).send("some error occured");
+  if (!seller)
+    return res
+      .status(404)
+      .json({ success: false, message: "some error occured" });
   const newProd = await Product.create({ ...req.body, sellerId: sid });
-  if (!newProd) return res.status(504).send("some error occured");
+  if (!newProd)
+    return res
+      .status(504)
+      .json({ success: false, message: "some error occured" });
   let products = await seller.myProducts;
   products = [...products, await newProd._id];
   User.findByIdAndUpdate(sid, { myProducts: products }, function (e, doc) {
-    if (e) return res.status(400).send("some error occured");
-    res.send("added successfully");
+    if (e)
+      return res
+        .status(400)
+        .json({ success: false, message: "some error occured" });
+    res.json({ success: true, message: "added successfully" });
   });
 };
 
@@ -19,17 +28,26 @@ const removeProduct = async (req, res) => {
   const sid = req.params.sid,
     pid = req.params.pid;
   const seller = await User.findById(sid);
-  if (!seller) return res.status(404).send("some error occured");
+  if (!seller)
+    return res
+      .status(404)
+      .json({ success: false, message: "some error occured" });
   const products = seller.myProducts;
   const idx = products.indexOf(pid);
   if (idx > -1) {
     products.splice(idx, 1);
     User.findByIdAndUpdate(sid, { myProducts: products }, function (e, doc) {
-      if (e) return res.status(400).send("error occured");
+      if (e)
+        return res
+          .status(400)
+          .json({ success: false, message: "some error occured" });
     });
     Product.findByIdAndDelete(pid, function (e, doc) {
-      if (e) return res.status(404).send("product not found");
-      res.send("removed successfully");
+      if (e)
+        return res
+          .status(404)
+          .json({ success: false, message: "product not found" });
+      res.json({ success: true, message: "removed successfully" });
     });
   }
 };
@@ -38,13 +56,21 @@ const updateProduct = async (req, res) => {
   const sid = req.params.sid,
     pid = req.params.pid;
   const product = await Product.findById(pid);
-  if (!product) return res.status(404).send("some error occured");
+  if (!product)
+    return res
+      .status(404)
+      .json({ success: false, message: "some error occured" });
   //Check whether the product owner is updating the product
   if (product.sellerId != sid)
-    return res.status(401).send("unauthorized access");
+    return res
+      .status(401)
+      .json({ success: false, message: "unauthorized access" });
   Product.findByIdAndUpdate(pid, { ...req.body }, function (e, doc) {
-    if (e) return res.status(404).send("some error occured");
-    res.send("successfully updated");
+    if (e)
+      return res
+        .status(404)
+        .json({ success: false, message: "some error occured" });
+    res.json({ success: true, message: "successfully updated" });
   });
 };
 
@@ -53,8 +79,9 @@ const viewMyProducts = async (req, res) => {
   const categories = req.query.category;
   const tags = req.query.tag;
   let Products = await Product.find({ sellerId: sid });
-  if (!Products) return res.status(404).send("not found");
-  if (!categories && !tags) return res.json({ ...Products });
+  if (!Products)
+    return res.status(404).json({ success: false, message: "not found" });
+  if (!categories && !tags) return res.json({ ...Products, success: true });
   let ans = [];
   for (let i = 0; i < Products.length; i++) {
     const category = Products[i].categories,
@@ -71,14 +98,15 @@ const viewMyProducts = async (req, res) => {
       ans = [...ans, Products[i]];
     }
   }
-  res.json(ans);
+  res.json({ ...ans, success: true });
 };
 
 const viewOne = async (req, res) => {
   const pid = req.params.pid;
   const product = await Product.findById(pid);
-  if (!product) return res.status(404).send("not found");
-  res.json(product);
+  if (!product)
+    return res.status(404).json({ success: false, message: "not found" });
+  res.json({ ...product, success: true });
 };
 
 const viewall = async (req, res) => {
@@ -86,8 +114,9 @@ const viewall = async (req, res) => {
   const tags = req.query.tag;
   // const sorted=req.query.sorted;
   let Products = await Product.find();
-  if (!Products) return res.status(404).send("not found");
-  if (!categories && !tags) return res.json({ ...Products });
+  if (!Products)
+    return res.status(404).json({ success: false, message: "not found" });
+  if (!categories && !tags) return res.json({ ...Products, success: true });
   let ans = [];
   for (let i = 0; i < Products.length; i++) {
     const category = Products[i].categories,
@@ -104,7 +133,7 @@ const viewall = async (req, res) => {
       ans = [...ans, Products[i]];
     }
   }
-  res.json(ans);
+  res.json({ ...ans, success: true });
 };
 
 module.exports = {

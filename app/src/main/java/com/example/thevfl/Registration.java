@@ -19,12 +19,15 @@ import android.widget.Toast;
 
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.JsonObject;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -71,50 +74,38 @@ public class Registration extends AppCompatActivity {
       }
 
     private void apiCallForVerification(String name, String email, String password) {
-    String url="http://10.0.2.2:8000/api/auth/register";
-       StringRequest request=new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-           @Override
-           public void onResponse(String response) {
-               System.out.println(response);
-               try {
-                   System.out.println(response);
-                  JSONObject jsonObject=new JSONObject(response);
 
-                   System.out.println(jsonObject);
+        JSONObject details = new JSONObject();
+        try {
+            details.put("email", email);
+            details.put("password", password);
+            details.put("name", name);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
-               } catch (JSONException e) {
-                   System.out.println("sorry dude");
-                   e.printStackTrace();
-               }
+        //@kuldeep , you need to write the ip address of desktop(server) instead of localhost in the url
+        //connect your computer with your mobile hotspot then see the ip address of your computer (by typing ipconfig command in windows cmd)
 
-
-           }
-       }, new Response.ErrorListener() {
-           @Override
-           public void onErrorResponse(VolleyError error) {
-               System.out.println(error);
-               System.out.println("errorroroorororoororo");
-
-           }
-       }){
-
-           @Nullable
-           @Override
-           protected Map<String, String> getParams() throws AuthFailureError {
-               Map<String,String>map=new HashMap<String,String>();
-               map.put("name",name);
-               map.put("email",email);
-               map.put("password",password);
-               return map;
-           }
-       };
-
-     RequestQueue queue=Volley.newRequestQueue(getApplicationContext());
-     queue.add(request);
-      }
-
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://192.168.43.28:8000/api/auth/register", details, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                //@Kuldeep response is a jsonObject, see how it appears in terminal and act accordingly
+                System.out.println("response " + response.toString());
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //@kuldeep, if status code is 400 i.e., error simply display error page on ui
+                System.out.println("this is error page...." + error.toString());
+            }
+        });
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
+    }
 
     LinearLayout layout1,layout2;
+    int statusCode;
     EditText name,phonenumber,email,password,repassword;
 
     @Override

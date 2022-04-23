@@ -3,6 +3,11 @@
     package="com.example.thevfl">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +17,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TheVFL"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".imageupload"
+            android:exported="false"
+            android:label="@string/title_activity_imageupload"
+            android:theme="@style/Theme.TheVFL.NoActionBar" />
         <activity
             android:name=".Bottomnavigation"
             android:exported="false"
@@ -26,7 +36,6 @@
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation"

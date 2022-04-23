@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-require("dotenv").config();
+require("dotenv").config(); //dotenv to store private data
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 8000;
 const MONGO_URI = process.env.MONGO_URI;
@@ -9,7 +9,7 @@ const ShoppingRoute = require("./routes/shoppingRoute");
 const ProductRoute = require("./routes/productRoute");
 mongoose.connect(MONGO_URI).then(
   () => {
-    console.log("connected to database..");
+    console.log("connected to database....");
   },
   (err) => {
     console.log(err);

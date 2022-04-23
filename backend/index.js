@@ -17,7 +17,9 @@ mongoose.connect(MONGO_URI).then(
 );
 
 app.use(express.json());
-app.get("/", (req, res) => res.send("server is up and running..."));
+app.get("/", (req, res) =>
+  res.json({ message: "server is up and running..." })
+);
 app.use("/api/auth", AuthRoute);
 app.use("/api/shopping", ShoppingRoute);
 app.use("/api/product", ProductRoute);

@@ -2,7 +2,10 @@ package com.example.thevfl;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -42,6 +45,10 @@ public class MyMenu extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
+                        SharedPreferences sharedPreferences=getSharedPreferences(Registration.PREFERENCE_DETAIL,0);
+                        sharedPreferences.edit().clear().commit();
+                        startActivity(new Intent(MyMenu.this,Registration.class));
+                        finish();
                     }
                 });
 
@@ -65,6 +72,7 @@ public class MyMenu extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
+
                     }
                 });
 
@@ -97,10 +105,11 @@ public class MyMenu extends AppCompatActivity {
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         View headerView=navigationView.getHeaderView(0);
+        SharedPreferences sharedPreferences= getSharedPreferences(Registration.PREFERENCE_DETAIL,0);
         nav_username=headerView.findViewById(R.id.nav_username);
-        nav_username.setText("Rashmika Mandhana");
+        nav_username.setText(sharedPreferences.getString("username","Username"));
         nav_emialId=headerView.findViewById(R.id.nav_emailId);
-        nav_emialId.setText("rashimaman123@gmail.com");
+        nav_emialId.setText(sharedPreferences.getString("email","user12@gmail.com"));
         nav_image=headerView.findViewById(R.id.nav_imageView);
         Picasso.get().load("https://st1.bollywoodlife.com/wp-content/uploads/2021/08/Rashmika-Mandanna.jpg").into(nav_image);
         // Passing each menu ID as a set of Ids because each

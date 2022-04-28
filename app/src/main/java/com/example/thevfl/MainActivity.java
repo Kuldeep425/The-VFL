@@ -1,6 +1,7 @@
 package com.example.thevfl;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -13,8 +14,15 @@ public class MainActivity extends AppCompatActivity {
              public void run() {
                  //This method will be executed once the timer is over
                  // Start your app main activity
-                 Intent i = new Intent(MainActivity.this, Registration.class);
-                 startActivity(i);
+                 SharedPreferences sharedPreferences=getSharedPreferences(Registration.PREFERENCE_DETAIL,0);
+                 boolean hasLoggedIn=sharedPreferences.getBoolean("hasLoggedIn",false);
+                 if(hasLoggedIn){
+                     startActivity(new Intent(MainActivity.this,MyMenu.class));
+                 }
+                 else {
+                     Intent i = new Intent(MainActivity.this, Registration.class);
+                     startActivity(i);
+                 }
                  // close this activity
                  finish();
              }

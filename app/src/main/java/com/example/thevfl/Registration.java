@@ -10,8 +10,10 @@ import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.ArrayAdapter;
@@ -49,6 +51,12 @@ import java.util.Set;
 public class Registration extends AppCompatActivity {
     boolean flag=false;
     ProgressDialog progressDialog;
+    LinearLayout layout1,layout2;
+    public static SharedPreferences userDetail;
+    public static  String PREFERENCE_DETAIL="MyPrefsFile";
+    SharedPreferences.Editor myedit;
+    int statusCode;
+    EditText name,phonenumber,email,password,repassword;
     public void progressDialogOpen(){
         progressDialog=new ProgressDialog(Registration.this);
         progressDialog.setCancelable(false);
@@ -58,11 +66,15 @@ public class Registration extends AppCompatActivity {
       public void gotoLoginpage(View v){
              if(v.getId()==R.id.register){
                 layout2.setVisibility(View.INVISIBLE);
+                //layout2.animate().alpha(0).setDuration(2000);
+              //  layout1.animate().alpha(1).setDuration(2000);
                 layout1.setVisibility(View.VISIBLE);
              }
              if(v.getId()==R.id.backbtn){
                  layout1.setVisibility(View.INVISIBLE);
                  layout2.setVisibility(View.VISIBLE);
+                // layout1.animate().alpha(0).setDuration(2000);
+                 //layout2.animate().alpha(1).setDuration(2000);
              }
       }
      public void  goToMainPage(View v){
@@ -81,8 +93,8 @@ public class Registration extends AppCompatActivity {
           }
           if(v.getId()==R.id.logintbn){
                progressDialogOpen();
-              //apiCallForLoginVerification(email.getText().toString(),password.getText().toString());
-            startActivity(new Intent(Registration.this,MyMenu.class));
+              apiCallForLoginVerification(email.getText().toString(),password.getText().toString());
+            //startActivity(new Intent(Registration.this,MyMenu.class));
               progressDialog.dismiss();
           }
       }
@@ -108,7 +120,9 @@ public class Registration extends AppCompatActivity {
                 flag=true;
                 System.out.println("response " + response.toString());
                 progressDialog.dismiss();
+                onPause();
                 showAlertDialogmessageOnResponse();
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -141,6 +155,8 @@ public class Registration extends AppCompatActivity {
                 //@Kuldeep response is a jsonObject, see how it appears in terminal and act accordingly
                // flag=true;
                 System.out.println("response " + response.toString());
+                myedit.putBoolean("hasLoggedIn",true);
+                myedit.commit();
                 startActivity(new Intent(Registration.this,MyMenu.class));
                 finish();
             }
@@ -197,9 +213,8 @@ public class Registration extends AppCompatActivity {
         AlertDialog alertDialog=builder.create();
         alertDialog.show();
     }
-    LinearLayout layout1,layout2;
-    int statusCode;
-    EditText name,phonenumber,email,password,repassword;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -212,5 +227,25 @@ public class Registration extends AppCompatActivity {
         email=findViewById(R.id.email_id);
         password=findViewById(R.id.password);
         repassword=findViewById(R.id.repassword);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        userDetail=getSharedPreferences(PREFERENCE_DETAIL,0);
+        myedit=userDetail.edit();
+       // myedit.putBoolean("hasLoggedIn",true);
+        myedit.putString("username",name.getText().toString());
+        myedit.putString("email",email.getText().toString());
+        myedit.commit();
+    }
+
+    @Override
+    public void onBackPressed() {
+        SharedPreferences.Editor myedit=userDetail.edit();
+        super.onBackPressed();
+        myedit.putString("username",name.getText().toString());
+        myedit.putString("email",email.getText().toString());
+        myedit.apply();
     }
 }

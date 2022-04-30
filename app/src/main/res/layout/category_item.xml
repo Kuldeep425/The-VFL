@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="1dp"
+
+    android:layout_width="300dp"
+    android:layout_height="120dp"
+    android:layout_marginLeft="50dp"
+    android:layout_marginTop="20dp"
+    android:elevation="10dp"
+    app:cardCornerRadius="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="4dp">
-
+   app:cardBackgroundColor="@color/colorPrimaryDark"
+    >
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="0dp">
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        >
 
-        <ImageView
-            android:id="@+id/catImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:padding="2dp" />
 
-        <TextView
-            android:id="@+id/catId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/catImage"
-            android:text="Id"
-            android:textColor="#000"
-            android:textSize="15sp" />
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal">
+           <de.hdodenhof.circleimageview.CircleImageView
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_marginLeft="5dp"
+               android:id="@+id/catImage"
+               android:src="@drawable/kuld" />
+           <LinearLayout
+               android:layout_width="120dp"
+               android:layout_height="120dp"
+               android:layout_marginLeft="40dp"
+               android:orientation="vertical">
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textColor="@color/white"
+                   android:textSize="15dp"
+                   android:id="@+id/catId"
+                   android:layout_marginBottom="10dp"
+                   android:text="id"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textColor="@color/white"
+                   android:textSize="15dp"
+                   android:id="@+id/catName"
+                   android:layout_marginBottom="10dp"
+                   android:text="Name"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textColor="@color/white"
+                   android:textSize="15dp"
+                   android:id="@+id/catDescription"
+                   android:layout_marginBottom="10dp"
+                   android:text="Description"/>
 
-        <TextView
-            android:id="@+id/catName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/catId"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_toEndOf="@id/catImage"
-            android:layout_toRightOf="@id/catImage"
-            android:text="Iddddd2"
-            android:textColor="#000"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/catDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/catName"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_toEndOf="@id/catImage"
-            android:layout_toRightOf="@id/catImage"
-            android:text="Iddddd2"
-            android:textColor="#000"
-            android:textSize="15sp" />
+           </LinearLayout>
+       </LinearLayout>
 
     </RelativeLayout>
-
 </androidx.cardview.widget.CardView>

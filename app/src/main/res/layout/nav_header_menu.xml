@@ -6,36 +6,41 @@
     android:background="@drawable/side_nav_bar"
     android:gravity="bottom"
     android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    android:backgroundTint="#EA8B39"
   >
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView"
+        android:id="@+id/nav_imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:contentDescription="@string/nav_header_desc"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:paddingTop="8dp"
+        android:onClick="uploadNewImage"
         android:src="@drawable/kuld">
 
     </de.hdodenhof.circleimageview.CircleImageView>
 
     <TextView
+        android:id="@+id/nav_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:paddingTop="8dp"
         android:textSize="20dp"
         android:text="Kuldeep"
+        android:textColor="@color/white"
         android:layout_marginLeft="10dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/nav_emailId"
         android:layout_width="wrap_content"
         android:layout_marginTop="5dp"
         android:textSize="15dp"
+        android:textColor="@color/white"
         android:layout_marginLeft="10dp"
         android:layout_height="wrap_content"
         android:text="knishan40025@gmail.com"/>

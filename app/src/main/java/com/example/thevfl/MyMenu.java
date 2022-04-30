@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.TextView;
 
+import com.example.thevfl.ui.Addproduct;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
@@ -100,6 +101,7 @@ public class MyMenu extends AppCompatActivity {
 
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                startActivity(new Intent(MyMenu.this, Addproduct.class));
             }
         });
         DrawerLayout drawer = binding.drawerLayout;

@@ -124,8 +124,14 @@ const login = async (req, res) => {
         .json({ success: false, message: "account not verified" });
     // const token=createToken(user._id)
     // res.cookie('jwtCookie',token,{httpOnly:false, maxAge:3*24*60*60*1000})
-    console.log(user);
-    res.json({ success: true});
+    res.json({
+      success: true,
+      _id: user._doc._id,
+      name: user._doc.name,
+      email: user._doc.email,
+      cart: user._doc.cart,
+      products: user._doc.myProducts,
+    });
   } catch (err) {
     console.log(err);
     res.status(400).json({ success: false, message: err.message });

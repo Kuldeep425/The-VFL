@@ -154,6 +154,9 @@ public class Registration extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 //@Kuldeep response is a jsonObject, see how it appears in terminal and act accordingly
                // flag=true;
+
+               // System.out.println(response.ge);
+
                 System.out.println("response " + response.toString());
                 myedit.putBoolean("hasLoggedIn",true);
                 myedit.commit();

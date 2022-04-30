@@ -116,6 +116,7 @@ const confirmEmail = (req, res) => {
 const login = async (req, res) => {
   const { email, password } = req.body;
   try {
+    console.log("email = "+ email,password);
     const user = await User.login(email, password);
     if (!user.verified)
       return res
@@ -123,7 +124,8 @@ const login = async (req, res) => {
         .json({ success: false, message: "account not verified" });
     // const token=createToken(user._id)
     // res.cookie('jwtCookie',token,{httpOnly:false, maxAge:3*24*60*60*1000})
-    res.json({ success: true, user: user._id });
+    console.log(user);
+    res.json({ success: true});
   } catch (err) {
     console.log(err);
     res.status(400).json({ success: false, message: err.message });

@@ -18,6 +18,10 @@
         android:theme="@style/Theme.Thecustom"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Introductory"
+            android:exported="false"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
             android:name=".ui.Addproduct"
             android:exported="false" />
         <activity
@@ -38,6 +42,7 @@
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation"
             android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

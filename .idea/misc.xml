@@ -24,6 +24,7 @@
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/activity_addproduct.xml" value="0.4232209737827715" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/activity_bottomnavigation.xml" value="0.14868421052631578" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/activity_introductory.xml" value="0.14868421052631578" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/activity_list_categories.xml" value="0.14868421052631578" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/activity_list_products.xml" value="0.14868421052631578" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/activity_main.xml" value="0.1765625" />
@@ -47,8 +48,13 @@
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/fragment_slideshow.xml" value="0.14868421052631578" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/list_category.xml" value="0.5" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/list_item.xml" value="0.25" />
+        <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/listitem_home_category_item.xml" value="0.14868421052631578" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/listitem_home_product_item.xml" value="0.14868421052631578" />
+        <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/listitem_product_features.xml" value="0.14868421052631578" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/nav_header_menu.xml" value="0.33" />
+        <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/onboardingfragment1.xml" value="0.33" />
+        <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/onboardingfragment2.xml" value="0.14868421052631578" />
+        <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/onboardingfragment3.xml" value="0.33" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/product_features.xml" value="0.14868421052631578" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/product_item.xml" value="0.14868421052631578" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layout/product_purchase.xml" value="0.14868421052631578" />
@@ -74,7 +80,7 @@
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layouts/product/layout/product_features.xml" value="0.33" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layouts/product/layout/product_item.xml" value="0.5" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/layouts/product/layout/product_purchase.xml" value="0.33" />
-        <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/menu/activity_main_drawer.xml" value="0.67" />
+        <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/menu/activity_main_drawer.xml" value="0.5" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/menu/bottom_nav_menu.xml" value="0.22" />
         <entry key="..\:/Users/Kuldeep/Desktop/The VFL/app/src/main/res/menu/menu.xml" value="0.33" />
       </map>

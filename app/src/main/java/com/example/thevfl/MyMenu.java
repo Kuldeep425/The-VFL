@@ -113,7 +113,7 @@ public class MyMenu extends AppCompatActivity {
         nav_emialId=headerView.findViewById(R.id.nav_emailId);
         nav_emialId.setText(sharedPreferences.getString("email","user12@gmail.com"));
         nav_image=headerView.findViewById(R.id.nav_imageView);
-        Picasso.get().load("https://st1.bollywoodlife.com/wp-content/uploads/2021/08/Rashmika-Mandanna.jpg").into(nav_image);
+        Picasso.get().load("https://telugu.cdn.zeenews.com/telugu/sites/default/files/RashmikaMandannaHot.jpg").into(nav_image);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(

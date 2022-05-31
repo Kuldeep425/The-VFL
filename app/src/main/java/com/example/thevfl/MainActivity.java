@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
                      startActivity(new Intent(MainActivity.this,MyMenu.class));
                  }
                  else {
-                     Intent i = new Intent(MainActivity.this, Registration.class);
+                     Intent i = new Intent(MainActivity.this, Introductory.class);
                      startActivity(i);
                  }
                  // close this activity

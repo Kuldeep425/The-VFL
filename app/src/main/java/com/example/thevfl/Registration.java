@@ -159,6 +159,11 @@ public class Registration extends AppCompatActivity {
 
                 System.out.println("response " + response.toString());
                 myedit.putBoolean("hasLoggedIn",true);
+                try {
+                    myedit.putString("sellerId",response.getString("_id"));
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
                 myedit.commit();
                 startActivity(new Intent(Registration.this,MyMenu.class));
                 finish();

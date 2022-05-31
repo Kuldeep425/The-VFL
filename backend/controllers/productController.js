@@ -3,6 +3,7 @@ const User = require("../models/UserModel");
 
 const addProduct = async (req, res) => {
   const sid = req.params.sid;
+  console.log(req.body);
   const seller = await User.findById(sid);
   if (!seller)
     return res

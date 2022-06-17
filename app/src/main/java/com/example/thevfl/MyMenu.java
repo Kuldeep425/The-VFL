@@ -47,7 +47,7 @@ public class MyMenu extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
                         SharedPreferences sharedPreferences=getSharedPreferences(Registration.PREFERENCE_DETAIL,0);
-                        sharedPreferences.edit().clear().commit();
+                        sharedPreferences.edit().putBoolean("hasLoggedIn",false).commit();
                         startActivity(new Intent(MyMenu.this,Registration.class));
                         finish();
                     }
@@ -109,7 +109,7 @@ public class MyMenu extends AppCompatActivity {
         View headerView=navigationView.getHeaderView(0);
         SharedPreferences sharedPreferences= getSharedPreferences(Registration.PREFERENCE_DETAIL,0);
         nav_username=headerView.findViewById(R.id.nav_username);
-        nav_username.setText(sharedPreferences.getString("username","Username"));
+        nav_username.setText(sharedPreferences.getString("name","Username"));
         nav_emialId=headerView.findViewById(R.id.nav_emailId);
         nav_emialId.setText(sharedPreferences.getString("email","user12@gmail.com"));
         nav_image=headerView.findViewById(R.id.nav_imageView);

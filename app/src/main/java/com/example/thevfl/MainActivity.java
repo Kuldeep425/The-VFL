@@ -7,7 +7,11 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.sql.ResultSetMetaData;
+
 public class MainActivity extends AppCompatActivity {
+    public static SharedPreferences userDetails;
+    SharedPreferences.Editor editor;
      public void playscreen(){
          new Handler().postDelayed(new Runnable() {
              @Override
@@ -37,5 +41,8 @@ public class MainActivity extends AppCompatActivity {
             playscreen();
             flag=true;
         }
+
     }
+
+
 }

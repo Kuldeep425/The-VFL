@@ -160,4 +160,5 @@ module.exports = {
   viewMyProducts,
   viewall,
   viewOne,
+  GetAllSortedByCategory
 };

@@ -110,6 +110,7 @@ const viewOne = async (req, res) => {
   res.json({ ...product, success: true });
 };
 
+//view all products of a particular category or tag..
 const viewall = async (req, res) => {
   const categories = req.query.category;
   const tags = req.query.tag;
@@ -125,7 +126,7 @@ const viewall = async (req, res) => {
     if (
       category &&
       categories &&
-      category.some((i) => categories.includes(i))
+      categories.includes(category)
     ) {
       ans = [...ans, Products[i]];
       continue;
@@ -136,6 +137,21 @@ const viewall = async (req, res) => {
   }
   res.json({ ...ans, success: true });
 };
+//view all products by category...
+const GetAllSortedByCategory= async (req,res)=>{
+  let finalResponse={};
+  let Products = await Product.find();
+  if (!Products)
+    return res.status(404).json({ success: false, message: "not found" });
+  for (let i = 0; i < Products.length; i++) {
+    const category = Products[i].categories;
+    if(!finalResponse[category])
+      finalResponse[category]=[Products[i]];
+    else
+      finalResponse[category]=[...finalResponse[category],Products[i]];
+  }
+  return res.json(finalResponse);
+}
 
 module.exports = {
   addProduct,

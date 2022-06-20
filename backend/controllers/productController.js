@@ -82,7 +82,7 @@ const viewMyProducts = async (req, res) => {
   let Products = await Product.find({ sellerId: sid });
   if (!Products)
     return res.status(404).json({ success: false, message: "not found" });
-  if (!categories && !tags) return res.json({ ...Products, success: true });
+  if (!categories && !tags) return res.json({ products:Products, success: true });
   let ans = [];
   for (let i = 0; i < Products.length; i++) {
     const category = Products[i].categories,
@@ -99,7 +99,7 @@ const viewMyProducts = async (req, res) => {
       ans = [...ans, Products[i]];
     }
   }
-  res.json({ ...ans, success: true });
+  res.json({products:ans, success: true });
 };
 
 const viewOne = async (req, res) => {
@@ -107,7 +107,7 @@ const viewOne = async (req, res) => {
   const product = await Product.findById(pid);
   if (!product)
     return res.status(404).json({ success: false, message: "not found" });
-  res.json({ ...product, success: true });
+  res.json({ product:product, success: true });
 };
 
 //view all products of a particular category or tag..
@@ -135,7 +135,7 @@ const viewall = async (req, res) => {
       ans = [...ans, Products[i]];
     }
   }
-  res.json({ ...ans, success: true });
+  res.json({ products:ans, success: true });
 };
 //view all products by category...
 const GetAllSortedByCategory= async (req,res)=>{
@@ -150,7 +150,7 @@ const GetAllSortedByCategory= async (req,res)=>{
     else
       finalResponse[category]=[...finalResponse[category],Products[i]];
   }
-  return res.json(finalResponse);
+  return res.json({products:finalResponse,success:true});
 }
 
 module.exports = {

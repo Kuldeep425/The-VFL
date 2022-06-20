@@ -1,4 +1,4 @@
-# APIs
+# APIs Documentation: 
 ## Login and Registration
 **For registering new user**
 
@@ -77,6 +77,13 @@ GET api/product/viewall
 ```
 We can also add query strings in url.
 _returns an array of products on success_
+
+**View all products grouped by category**
+
+```js
+GET api/product/get-all-category-sorted
+```
+_returns a json object with category as key and array of products as values_
 
 **View a particular product**
 

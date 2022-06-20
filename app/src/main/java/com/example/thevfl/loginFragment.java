@@ -45,7 +45,7 @@ public class loginFragment extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://192.168.168.162:8000/api/auth/login", details, new Response.Listener<JSONObject>() {
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,"http://192.168.168.162:8000/api/auth/login", details, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 System.out.println("response " + response.toString());

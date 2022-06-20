@@ -9,9 +9,11 @@ import androidx.fragment.app.FragmentPagerAdapter;
 public class LoginPageAdapter extends FragmentPagerAdapter {
     private Context context;
     int totalTabs;
+    String s;
 
     public LoginPageAdapter(FragmentManager fm, Context context, int totalTabs) {
         super(fm);
+       // this.s=s;
         this.context = context;
         this.totalTabs = totalTabs;
     }

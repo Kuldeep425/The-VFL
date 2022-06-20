@@ -1,6 +1,7 @@
 package com.example.thevfl;
 
 import android.app.AlertDialog;
+import android.app.DownloadManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +10,7 @@ import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.view.textclassifier.TextLinks;
 import android.widget.TextView;
 
 import com.example.thevfl.ui.Addproduct;
@@ -27,6 +29,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.thevfl.databinding.ActivityMenuBinding;
 import com.squareup.picasso.Picasso;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import androidx.fragment.app.Fragment;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MyMenu extends AppCompatActivity {
@@ -34,9 +47,13 @@ public class MyMenu extends AppCompatActivity {
     CircleImageView nav_image;
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMenuBinding binding;
+
+
+
     public void uploadNewImage(View v){
         changeImage();
     }
+
     private void logoutUser(){
         AlertDialog.Builder builder=new AlertDialog.Builder(MyMenu.this,R.style.AlertDialogStyle);
         builder.setMessage("Do you want to logout ?");
@@ -64,6 +81,7 @@ public class MyMenu extends AppCompatActivity {
       //  alertDialog.setView(R.style.AlertDialogStyle);
         alertDialog.show();
     }
+
     private void changeImage(){
         AlertDialog.Builder builder=new AlertDialog.Builder(MyMenu.this);
         builder.setMessage("Do you want to change profile image?");
@@ -87,6 +105,8 @@ public class MyMenu extends AppCompatActivity {
         AlertDialog alertDialog=builder.create();
         alertDialog.show();
     }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -123,6 +143,43 @@ public class MyMenu extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_menu);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        setProductOnFronted();
+    }
+
+    private void setProductOnFronted() {
+
+
+
+
+            //@kuldeep , you need to write the ip address of desktop(server) instead of localhost in the url
+            //connect your computer with your mobile hotspot then see the ip address of your computer (by typing ipconfig command in windows cmd)
+
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, "http://192.168.168.162:8000/api/product/get-all-category-sorted", null,new Response.Listener<JSONObject>() {
+                @Override
+                public void onResponse(JSONObject response) {
+                    //@Kuldeep response is a jsonObject, see how it appears in terminal and act accordingly
+                    // flag=true;
+                    System.out.println(response);
+                    System.out.println("response " + response.toString());
+                   // SignupFragment.class.progressDialog.dismiss();
+                    onPause();
+                   // SignupFragment.class.showAlertDialogmessageOnResponse();
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    //@kuldeep, if status code is 400 i.e., error simply display error page on ui
+                    //SignupFragment.class.progressDialog.dismiss();
+                   // SignupFragment.class.showAlertDialogmessageOnErrorResponse();
+                    System.out.println("this is error page...." + error.toString());
+                }
+            });
+            RequestQueue queue = Volley.newRequestQueue(MyMenu.this);
+            queue.add(request);
+
+
+
     }
 
     @Override

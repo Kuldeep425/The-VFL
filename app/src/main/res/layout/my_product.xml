@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="10sp"
+        app:layout_constraintVertical_bias="0"
+        android:layout_marginVertical="7dp"
+        app:cardCornerRadius="10sp"
+        app:cardElevation="10dp"
+        app:layout_constraintWidth_percent=".8" >
+
+        <ImageView
+            android:id="@+id/image_myproduct"
+            android:layout_width="134dp"
+            android:layout_height="125dp"
+            android:layout_marginVertical="13sp"
+            android:layout_marginHorizontal="10sp"
+            android:src="@drawable/paneer" />
+
+        <TextView
+            android:id="@+id/productname_myproduct"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="40sp"
+            android:textColor="@color/colorPrimary"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Paneer" />
+
+        <TextView
+            android:id="@+id/categoryname_myproduct"
+            android:layout_marginLeft="200sp"
+            android:layout_marginTop="80sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:text="Foods " />
+
+        <TextView
+            android:id="@+id/price_myproduct"
+            android:layout_marginLeft="200sp"
+            android:layout_marginTop="120sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:text="120/-" />
+        <TextView
+        android:id="@+id/description_myproduct"
+        android:layout_marginLeft="10sp"
+        android:layout_marginTop="160sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:text="This is very tasty and contains all nutrient elements , it is made from pure milk" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

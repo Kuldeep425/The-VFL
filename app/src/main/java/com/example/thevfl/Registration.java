@@ -34,6 +34,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.thevfl.ui.dashboard.DashboardFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.JsonObject;
@@ -64,6 +65,10 @@ public class Registration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
+       userDetail =getSharedPreferences(Registration.PREFERENCE_DETAIL,0);
+        if(userDetail.getBoolean("hasLoggedIn",false)){
+            startActivity(new Intent(Registration.this, MyMenu.class));
+        }
         layout=findViewById(R.id.tabLayout);
         viewPager =findViewById(R.id.viewPager);
         google=findViewById(R.id.google);
@@ -75,10 +80,13 @@ public class Registration extends AppCompatActivity {
 
         //shared preferences
 
-
+        System.out.println(layout.getSelectedTabPosition());
         final LoginPageAdapter adapter=new LoginPageAdapter(getSupportFragmentManager(),this,layout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(layout));
+
+
+
         fb.setTranslationY(300);
         google.setTranslationY(300);
         twitter.setTranslationY(300);

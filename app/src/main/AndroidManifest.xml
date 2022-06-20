@@ -34,13 +34,13 @@
             android:label="Profile"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".Registration"
+            android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".Registration"
             android:configChanges="keyboardHidden|orientation"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.NoActionBar"

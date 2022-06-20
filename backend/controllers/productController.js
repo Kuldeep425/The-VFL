@@ -137,6 +137,8 @@ const viewall = async (req, res) => {
   res.json({ ...ans, success: true });
 };
 
+//TODO: make view all by category
+
 module.exports = {
   addProduct,
   removeProduct,

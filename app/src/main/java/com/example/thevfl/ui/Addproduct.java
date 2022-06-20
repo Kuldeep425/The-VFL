@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.android.volley.NetworkResponse;
@@ -38,15 +39,19 @@ import java.util.jar.Manifest;
 
 public class Addproduct extends AppCompatActivity {
      ImageView productImg;
+     LinearLayout layout;
      Button button;
      Uri seletedimage=null;
      EditText name,category,description,price;
      ProgressDialog dialog;
      SharedPreferences preferences;
+     float v=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addproduct);
+
+        layout=findViewById(R.id.linear1);
         productImg=findViewById(R.id.imagepickerforaddingproduct);
         button=findViewById(R.id.addButton);
         name=findViewById(R.id.nameOfProduct);
@@ -54,12 +59,42 @@ public class Addproduct extends AppCompatActivity {
         description=findViewById(R.id.descriptionOfProduct);
         price=findViewById(R.id.priceOfProduct);
         preferences= getSharedPreferences(Registration.PREFERENCE_DETAIL,0);
+
+        layout.setAlpha(v);
+        productImg.setAlpha(v);
+        button.setAlpha(v);
+        name.setAlpha(v);
+        category.setAlpha(v);
+        description.setAlpha(v);
+        price.setAlpha(v);
+
+        layout.setTranslationY(1000);
+        button.setTranslationY(1000);
+        productImg.setTranslationY(-1000);
+        name.setTranslationX(-1000);
+        category.setTranslationX(1000);
+        description.setTranslationX(-1000);
+        price.setTranslationX(1000);
+
+
+        layout.animate().translationY(0).alpha(1).setStartDelay(700).setDuration(1000).start();
+        productImg.animate().translationY(0).alpha(1).setStartDelay(700).setDuration(1000).start();
+        button.animate().translationY(0).alpha(1).setStartDelay(1700).setDuration(1000).start();
+        name.animate().translationX(0).alpha(1).setStartDelay(1700).setDuration(1000).start();
+        category.animate().translationX(0).alpha(1).setStartDelay(1700).setDuration(1000).start();
+        description.animate().translationX(0).alpha(1).setStartDelay(1700).setDuration(1000).start();
+        price.animate().translationX(0).alpha(1).setStartDelay(1700).setDuration(1000).start();
+
+
+
+
         productImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showDialogToChooseOption();
             }
         });
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,9 +137,11 @@ public class Addproduct extends AppCompatActivity {
             }
         });
     }
+
     private void uploadImageFromCamera(){
 
     }
+
     private void uploadImageFromGallery(){
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent,1);
@@ -130,7 +167,7 @@ public class Addproduct extends AppCompatActivity {
          }
          System.out.println(jsonObject);
 
-         JsonRequest request=new JsonObjectRequest(Request.Method.POST, "http://192.168.246.162:8000/api/product/add/"+preferences.getString("sellerId","hbjsd"), jsonObject, new Response.Listener<JSONObject>() {
+         JsonRequest request=new JsonObjectRequest(Request.Method.POST,"http://192.168.168.162:8000/api/product/add/"+preferences.getString("sellerId","hbjsd"), jsonObject, new Response.Listener<JSONObject>() {
              @Override
              public void onResponse(JSONObject response) {
                  System.out.println(response);
@@ -150,6 +187,7 @@ public class Addproduct extends AppCompatActivity {
          RequestQueue queue = Volley.newRequestQueue(this);
          queue.add(request);
      }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -161,6 +199,8 @@ public class Addproduct extends AppCompatActivity {
                 }
         }
     }
+
+
     public void alertDialog(JSONObject r){
         AlertDialog.Builder builder=new AlertDialog.Builder(Addproduct.this);
 
@@ -189,6 +229,7 @@ public class Addproduct extends AppCompatActivity {
         AlertDialog dialog1=builder.create();
         dialog1.show();
     }
+
     public void resetField(){
         name.setText("");
         category.setText("");
